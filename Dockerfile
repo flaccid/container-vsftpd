@@ -2,7 +2,10 @@ FROM alpine:3
 RUN apk add \
     --no-cache \
     --update \
-        vsftpd && \
+    inetutils-ftp \
+    inetutils-telnet \
+    iproute2 \
+    vsftpd && \
     touch /var/log/vsftpd.log && \
     rm -rf /var/cache/apk/*        
 EXPOSE 21/tcp

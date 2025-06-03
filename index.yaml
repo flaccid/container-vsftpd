@@ -2,8 +2,23 @@ apiVersion: v1
 entries:
   vsftpd:
   - apiVersion: v2
+<<<<<<< HEAD
     appVersion: 1.16.0
     created: "2025-06-03T10:42:49.991758232+10:00"
+=======
+    appVersion: 3.0.5
+    created: "2025-06-03T11:08:25.089626699+10:00"
+    description: A Helm chart for Kubernetes
+    digest: 9a392d29a826ce7ffcdca395666364c22d49da4369c2dc834968a5a3bdf0244c
+    name: vsftpd
+    type: application
+    urls:
+    - https://flaccid.github.io/container-vsftpd/vsftpd-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-06-03T11:08:25.089410642+10:00"
+>>>>>>> f3b0d23 (Update image in chart values.)
     description: A Helm chart for Kubernetes
     digest: 477900d2aa2df3bca08dc9112e38077ae082fa2a024c2b425995f8d23516cea5
     name: vsftpd
@@ -11,4 +26,8 @@ entries:
     urls:
     - https://flaccid.github.io/container-vsftpd/vsftpd-0.1.0.tgz
     version: 0.1.0
+<<<<<<< HEAD
 generated: "2025-06-03T10:42:49.991370709+10:00"
+=======
+generated: "2025-06-03T11:08:25.088847958+10:00"
+>>>>>>> f3b0d23 (Update image in chart values.)

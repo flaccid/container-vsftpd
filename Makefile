@@ -59,15 +59,15 @@ docker-test:: ## tests the runtime of the docker image in a basic sense
 
 helm-install:: ## installs using helm from chart in repo
 		@helm install \
-			-f values.yaml \
+			-f helm-values.yaml \
 			--namespace $(KUBE_NAMESPACE) \
-				vsftpd mirror.gcr.io/bitnamicharts/vsftpd
+				vsftpd ./charts/vsftpd
 
 helm-upgrade:: ## upgrades deployed helm release
 		@helm upgrade \
-			-f values.yaml \
+			-f helm-values.yaml \
 			--namespace $(KUBE_NAMESPACE) \
-				vsftpd mirror.gcr.io/bitnamicharts/vsftpd
+				vsftpd ./charts/vsftpd
 
 helm-uninstall:: ## deletes and purges deployed helm release
 		@helm uninstall \
@@ -78,15 +78,15 @@ helm-reinstall:: helm-uninstall helm-install ## Uninstalls the helm release, the
 
 helm-render:: ## prints out the rendered chart
 		@helm install \
-			-f values.yaml \
+			-f helm-values.yaml \
 			--namespace $(KUBE_NAMESPACE) \
 			--dry-run \
 			--debug \
-				vsftpd mirror.gcr.io/bitnamicharts/vsftpd
+				vsftpd ./charts/vsftpd
 
 helm-validate:: ## runs a lint on the helm chart
 		@helm lint \
-			-f values.yaml \
+			-f helm-values.yaml \
 			--namespace $(KUBE_NAMESPACE) \
 				charts/vsftpd
 

@@ -7,6 +7,8 @@ RUN apk add \
     inetutils-telnet \
     iproute2 \
     vsftpd && \
+    addgroup root ftp && \
+    chmod g+rwx /var/lib/ftp && \
     touch /var/log/vsftpd.log && \
     rm -rf /var/cache/apk/*        
 EXPOSE 21/tcp

@@ -3,4 +3,4 @@ RUN apk add \
     --no-cache \
     --update \
         vsftpd
-CMD ["vsftpd", "/etc/vsftpd/vsftpd.conf"]
+CMD ["vsftpd", "-oseccomp_sandbox=NO", "/etc/vsftpd/vsftpd.conf"]

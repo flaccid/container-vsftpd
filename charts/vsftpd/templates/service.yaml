@@ -7,17 +7,19 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
+    - name: ftpd
+      port: {{ .Values.service.port }}
       targetPort: ftpd
       protocol: TCP
-      name: ftpd
-    - port: 15393
+    - name: pasv-0
+      port: 15393
       targetPort: 15393
+      nodePort: 30393
       protocol: TCP
-      name: pasv-0
-    - port: 15394
+    - name: pasv-1
+      port: 15394
       targetPort: 15394
+      nodePort: 30394
       protocol: TCP
-      name: pasv-1
   selector:
     {{- include "vsftpd.selectorLabels" . | nindent 4 }}

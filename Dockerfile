@@ -2,8 +2,7 @@ FROM alpine:3
 RUN apk add \
     --no-cache \
     --update \
-        vsftpd
-USER vsftp
+        vsftpd && \
 CMD ["vsftpd", \
      "-oseccomp_sandbox=NO", \
      "-obackground=NO", \

@@ -44,6 +44,12 @@ spec:
             - name: ftpd
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+            - name: pasv-0
+              containerPort: 15393
+              protocol: TCP
+            - name: pasv-1
+              containerPort: 15394
+              protocol: TCP
           {{- with .Values.livenessProbe }}
           livenessProbe:
             {{- toYaml . | nindent 12 }}

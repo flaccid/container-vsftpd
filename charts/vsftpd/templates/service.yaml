@@ -8,8 +8,8 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: http
+      targetPort: ftpd
       protocol: TCP
-      name: http
+      name: ftpd
   selector:
     {{- include "vsftpd.selectorLabels" . | nindent 4 }}

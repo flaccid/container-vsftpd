@@ -38,18 +38,18 @@ docker-run:: ## Runs the docker image
 			-it \
 			--rm \
 			-p 21:21 \
-			-p 15393-15393:15393-15394 \
+			-p 15393-15394:15393-15394 \
 				$(IMAGE_TAG)
 
 docker-exec-shell:: ## Executes a shell in running container
 		@docker exec \
 			-it \
-				vsftpd /bin/bash
+				vsftpd /bin/sh
 
 docker-run-shell:: ## Runs the docker image with bash as entrypoint
 		@docker run \
 			-it \
-			--entrypoint /bin/bash \
+			--entrypoint /bin/sh \
 				$(IMAGE_TAG)
 
 docker-rm:: ## Removes the running docker container

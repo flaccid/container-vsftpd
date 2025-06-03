@@ -11,5 +11,13 @@ spec:
       targetPort: ftpd
       protocol: TCP
       name: ftpd
+    - port: 15393
+      targetPort: 15393
+      protocol: TCP
+      name: pasv-0
+    - port: 15394
+      targetPort: 15394
+      protocol: TCP
+      name: pasv-1
   selector:
     {{- include "vsftpd.selectorLabels" . | nindent 4 }}

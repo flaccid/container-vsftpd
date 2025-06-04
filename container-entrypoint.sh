@@ -3,4 +3,5 @@
 tail -f /var/log/vsftpd.log &
 
 echo "> $@"
+vsftpd -v
 exec "$@"

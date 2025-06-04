@@ -13,10 +13,12 @@ RUN apk add \
     touch /var/log/vsftpd.log && \
     rm -rf /var/cache/apk/*        
 EXPOSE 21/tcp
-EXPOSE 15393-15394/tcp
+EXPOSE 50000-50019/tcp
 WORKDIR /var/lib/ftp
 ENTRYPOINT ["/usr/local/bin/container-entrypoint.sh"]
 CMD ["vsftpd", \
             "-oseccomp_sandbox=NO", \
             "-obackground=NO", \
+            "-opasv_min_port=50000", \
+            "-opasv_max_port=50019", \
             "/etc/vsftpd/vsftpd.conf"]

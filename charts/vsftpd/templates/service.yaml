@@ -12,14 +12,104 @@ spec:
       targetPort: ftpd
       protocol: TCP
     - name: pasv-0
-      port: 15393
-      targetPort: 15393
-      nodePort: 30393
+      port: 50000
+      targetPort: 50000
+      nodePort: 30000
       protocol: TCP
     - name: pasv-1
-      port: 15394
-      targetPort: 15394
-      nodePort: 30394
+      port: 50001
+      targetPort: 50001
+      nodePort: 30001
+      protocol: TCP
+    - name: pasv-2
+      port: 50002
+      targetPort: 50002
+      nodePort: 30002
+      protocol: TCP
+    - name: pasv-3
+      port: 50003
+      targetPort: 50003
+      nodePort: 30003
+      protocol: TCP
+    - name: pasv-4
+      port: 50004
+      targetPort: 50004
+      nodePort: 30004
+      protocol: TCP
+    - name: pasv-5
+      port: 50005
+      targetPort: 50005
+      nodePort: 30005
+      protocol: TCP
+    - name: pasv-6
+      port: 50006
+      targetPort: 50006
+      nodePort: 30006
+      protocol: TCP
+    - name: pasv-7
+      port: 50007
+      targetPort: 50007
+      nodePort: 30007
+      protocol: TCP
+    - name: pasv-8
+      port: 50008
+      targetPort: 50008
+      nodePort: 30008
+      protocol: TCP
+    - name: pasv-9
+      port: 50009
+      targetPort: 50009
+      nodePort: 30009
+      protocol: TCP
+    - name: pasv-10
+      port: 50010
+      targetPort: 50010
+      nodePort: 30010
+      protocol: TCP
+    - name: pasv-11
+      port: 50011
+      targetPort: 50011
+      nodePort: 30011
+      protocol: TCP
+    - name: pasv-12
+      port: 50012
+      targetPort: 50012
+      nodePort: 30012
+      protocol: TCP
+    - name: pasv-13
+      port: 50013
+      targetPort: 50013
+      nodePort: 30013
+      protocol: TCP
+    - name: pasv-14
+      port: 50014
+      targetPort: 50014
+      nodePort: 30014
+      protocol: TCP
+    - name: pasv-15
+      port: 50015
+      targetPort: 50015
+      nodePort: 30015
+      protocol: TCP
+    - name: pasv-16
+      port: 50016
+      targetPort: 50016
+      nodePort: 30016
+      protocol: TCP
+    - name: pasv-17
+      port: 50017
+      targetPort: 50017
+      nodePort: 30017
+      protocol: TCP
+    - name: pasv-18
+      port: 50018
+      targetPort: 50018
+      nodePort: 30018
+      protocol: TCP
+    - name: pasv-19
+      port: 50019
+      targetPort: 50019
+      nodePort: 30019
       protocol: TCP
   selector:
     {{- include "vsftpd.selectorLabels" . | nindent 4 }}

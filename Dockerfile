@@ -12,8 +12,7 @@ RUN apk add \
     chmod g+rwx /var/lib/ftp/incoming && \
     touch /var/log/vsftpd.log && \
     rm -rf /var/cache/apk/*        
-EXPOSE 21/tcp
-EXPOSE 50000-50019/tcp
+EXPOSE 21/tcp 50000-50019/tcp
 WORKDIR /var/lib/ftp
 ENTRYPOINT ["/usr/local/bin/container-entrypoint.sh"]
 CMD ["vsftpd", \

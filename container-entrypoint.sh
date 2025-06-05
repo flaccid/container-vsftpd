@@ -1,7 +1,7 @@
 #!/bin/sh -e
 
 # automatic user provisioning
-if [ ! -e /mnt/vsftpd/vsftpd-passwd ] && [ ! -z /mnt/vsftpd/vsftpd-passwd ]; then
+if [ -e /mnt/vsftpd/vsftpd-passwd ] && [ ! -z /mnt/vsftpd/vsftpd-passwd ]; then
 	echo 'provisioning users from /mnt/vsftpd/vsftpd-passwd'
     while IFS= read -r line; do
         user=${line%:*}

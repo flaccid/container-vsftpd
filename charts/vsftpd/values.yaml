@@ -75,3 +75,6 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+sshd:
+  enable: false

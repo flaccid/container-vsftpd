@@ -122,6 +122,19 @@ spec:
             {{- with .Values.extraVolumeMounts }}
               {{- toYaml . | nindent 12 }}
             {{- end }}
+        {{- if .Values.sshd.enabled }}
+        - name: sshd
+          {{- with .Values.securityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          image: flaccid/sshd
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: sshd
+              containerPort: 22
+              protocol: TCP
+        {{- end }}
       volumes:
         - name: config
           configMap:

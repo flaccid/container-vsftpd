@@ -115,5 +115,11 @@ spec:
       targetPort: 50019
       nodePort: 30019
       protocol: TCP
+    {{- if .Values.sshd.enabled }}
+    - name: sshd
+      port: 22
+      targetPort: sshd
+      protocol: TCP
+    {{- end }}
   selector:
     {{- include "vsftpd.selectorLabels" . | nindent 4 }}

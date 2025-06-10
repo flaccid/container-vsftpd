@@ -78,3 +78,6 @@ affinity: {}
 
 sshd:
   enable: false
+
+httphealth:
+  enabled: false

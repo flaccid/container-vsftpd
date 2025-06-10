@@ -135,6 +135,19 @@ spec:
               containerPort: 22
               protocol: TCP
         {{- end }}
+        {{- if .Values.httphealth.enabled }}
+        - name: http-health
+          {{- with .Values.securityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          image: flaccid/httpstaticd
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http-health
+              containerPort: 8080
+              protocol: TCP
+        {{- end }}
       volumes:
         - name: config
           configMap:

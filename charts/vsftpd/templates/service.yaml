@@ -121,5 +121,11 @@ spec:
       targetPort: sshd
       protocol: TCP
     {{- end }}
+    {{- if .Values.httphealth.enabled }}
+    - name: http-health
+      port: 8080
+      targetPort: http-health
+      protocol: TCP
+    {{- end }}
   selector:
     {{- include "vsftpd.selectorLabels" . | nindent 4 }}

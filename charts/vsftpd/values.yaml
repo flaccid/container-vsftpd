@@ -78,6 +78,7 @@ affinity: {}
 
 sshd:
   enable: false
+  env: []
 
 httphealth:
   enabled: false

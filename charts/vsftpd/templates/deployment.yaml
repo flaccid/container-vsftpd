@@ -134,6 +134,10 @@ spec:
             - name: sshd
               containerPort: 22
               protocol: TCP
+          {{- with .Values.sshd.env }}
+          env:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
         {{- end }}
         {{- if .Values.httphealth.enabled }}
         - name: http-health

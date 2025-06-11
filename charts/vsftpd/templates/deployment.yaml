@@ -128,8 +128,8 @@ spec:
           securityContext:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          image: flaccid/sshd
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          image: "{{ .Values.sshd.image.repository }}:{{ .Values.sshd.image.tag }}"
+          imagePullPolicy: {{ .Values.sshd.image.pullPolicy }}
           {{- with .Values.extraVolumeMounts }}
           volumeMounts:
             {{- toYaml . | nindent 12 }}

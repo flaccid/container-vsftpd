@@ -3,12 +3,12 @@ entries:
   vsftpd:
   - apiVersion: v2
     appVersion: 3.0.5
-    created: "2025-06-10T14:55:37.426763693+10:00"
+    created: "2025-06-11T13:37:53.022081461+10:00"
     description: A Helm chart for Kubernetes
-    digest: 1657c9711b14dbdd1f97bdab8cf975d112cabdfb933c1c7d3c1341b858ce4ce9
+    digest: f6ea9b48559e24d1bbac728573971911df02418d2b21634ca723766ef0ab42b8
     name: vsftpd
     type: application
     urls:
-    - https://flaccid.github.io/container-vsftpd/vsftpd-0.1.14.tgz
-    version: 0.1.14
-generated: "2025-06-10T14:55:37.426405738+10:00"
+    - https://flaccid.github.io/container-vsftpd/vsftpd-0.1.15.tgz
+    version: 0.1.15
+generated: "2025-06-11T13:37:53.021423909+10:00"

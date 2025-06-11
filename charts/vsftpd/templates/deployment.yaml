@@ -130,6 +130,10 @@ spec:
           {{- end }}
           image: flaccid/sshd
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- with .Values.extraVolumeMounts }}
+          volumeMounts:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           ports:
             - name: sshd
               containerPort: 22

@@ -38,8 +38,19 @@ docker-run:: ## Runs the docker image
 			-it \
 			--rm \
 			-p 21:21 \
-			-p 15393-15394:15393-15394 \
+			-p 50000-50019:50000-50019 \
+			-v $(WORKING_DIR)/test/tmp/vsftpd-passwd:/tmp/vsftpd-passwd \
 				$(IMAGE_TAG)
+
+docker-run-alpine:: ## Runs a plain alpine container for development, detached
+		docker run \
+			--name vsftpd \
+			-itd \
+			--rm \
+			-p 21:21 \
+			-v $(WORKING_DIR):/root/container-vsftpd \
+			-p 50000-50019:50000-50019 \
+				alpine:3
 
 docker-exec-shell:: ## Executes a shell in running container
 		@docker exec \

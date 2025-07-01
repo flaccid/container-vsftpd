@@ -7,6 +7,7 @@ RUN apt-get update && \
     procps \
     telnet \
     vsftpd && \
+    mkdir -p /var/run/vsftpd/empty && \
     touch /var/log/vsftpd.log && \
     rm -rf /var/lib/apt/lists/*
 EXPOSE 21/tcp 50000-50019/tcp

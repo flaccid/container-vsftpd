@@ -40,23 +40,25 @@ docker-pull:: ## pulls the docker image locally
 		@docker pull $(IMAGE_TAG)
 
 docker-run:: ## Runs the docker image
+		@echo 'billgates:St34lDoS' > $(WORKING_DIR)/test/mnt/vsftpd-passwd
 		docker run \
 			--name vsftpd \
 			-it \
 			--rm \
 			-p 21:21 \
 			-p 50000-50019:50000-50019 \
-			-v $(WORKING_DIR)/test/tmp/vsftpd-passwd:/tmp/vsftpd-passwd \
+			-v $(WORKING_DIR)/test/mnt/vsftpd-passwd:/mnt/vsftpd/vsftpd-passwd \
 				$(IMAGE_TAG)
 
 docker-run-debian:: ## Runs the docker image (debian version)
+		@echo 'billgates:St34lDoS' > $(WORKING_DIR)/test/mnt/vsftpd-passwd
 		docker run \
 			--name vsftpd \
 			-it \
 			--rm \
 			-p 21:21 \
 			-p 50000-50019:50000-50019 \
-			-v $(WORKING_DIR)/test/tmp/vsftpd-passwd:/tmp/vsftpd-passwd \
+			-v $(WORKING_DIR)/test/mnt/vsftpd-passwd:/mnt/vsftpd/vsftpd-passwd \
 				$(DOCKER_REGISTRY)/$(IMAGE_ORG)/$(IMAGE_NAME):debian
 
 docker-run-alpine:: ## Runs a plain alpine container for development, detached

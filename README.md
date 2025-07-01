@@ -25,6 +25,8 @@ Alternative container solutions such as https://github.com/prapdm/vsftpd-pam/tre
 - https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/5/html/deployment_guide/s4-ftp-vsftpd-conf-opt-log
 
 ## Other Implementations
+- https://github.com/phcollignon/vsftpd-helm-chart/tree/main
+- https://github.com/ome/vsftpd-anonymous-upload-docker/tree/master
 - https://github.com/fauria/docker-vsftpd
 - https://github.com/lhauspie/docker-vsftpd-alpine
 - https://github.com/million12/docker-vsftpd

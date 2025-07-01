@@ -43,67 +43,14 @@ spec:
           ports:
             - name: ftpd
               containerPort: {{ .Values.service.port }}
-              protocol: TCP
-            - name: pasv-0
-              containerPort: 50000
-              protocol: TCP
-            - name: pasv-1
-              containerPort: 50001
-              protocol: TCP
-            - name: pasv-2
-              containerPort: 50002
-              protocol: TCP
-            - name: pasv-3
-              containerPort: 50003
-              protocol: TCP
-            - name: pasv-4
-              containerPort: 50004
-              protocol: TCP
-            - name: pasv-5
-              containerPort: 50005
-              protocol: TCP
-            - name: pasv-6
-              containerPort: 50006
-              protocol: TCP
-            - name: pasv-7
-              containerPort: 50007
-              protocol: TCP
-            - name: pasv-8
-              containerPort: 50008
-              protocol: TCP
-            - name: pasv-9
-              containerPort: 50009
-              protocol: TCP
-            - name: pasv-10
-              containerPort: 50010
-              protocol: TCP
-            - name: pasv-11
-              containerPort: 50011
-              protocol: TCP
-            - name: pasv-12
-              containerPort: 50012
-              protocol: TCP
-            - name: pasv-13
-              containerPort: 50013
-              protocol: TCP
-            - name: pasv-14
-              containerPort: 50014
-              protocol: TCP
-            - name: pasv-15
-              containerPort: 50015
-              protocol: TCP
-            - name: pasv-16
-              containerPort: 50016
-              protocol: TCP
-            - name: pasv-17
-              containerPort: 50017
-              protocol: TCP
-            - name: pasv-18
-              containerPort: 50018
-              protocol: TCP
-            - name: pasv-19
-              containerPort: 50019
-              protocol: TCP
+          {{- $pasvMinPort := int .Values.service.pasvMinPort }}
+          {{- $pasvMaxPort := int .Values.service.pasvMaxPort | add1 | int }}
+          {{- $step := 1 }}
+          {{- $pasvPorts := untilStep $pasvMinPort $pasvMaxPort $step }}
+          {{- range $index, $port := $pasvPorts }}
+            - name: pasv-{{ $index }}
+              containerPort: {{ $port }}
+          {{- end }}
           {{- with .Values.livenessProbe }}
           livenessProbe:
             {{- toYaml . | nindent 12 }}

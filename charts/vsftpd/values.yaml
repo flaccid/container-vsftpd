@@ -38,6 +38,8 @@ service:
   type: ClusterIP
   port: 21
   annotations: {}
+  pasvMinPort: 50000
+  pasvMaxPort: 50019
 
 resources:
   {}

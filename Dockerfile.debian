@@ -1,0 +1,19 @@
+FROM debian:bookworm-slim
+COPY container-entrypoint.sh /usr/local/bin/container-entrypoint.sh
+RUN apt-get update && \
+    apt-get -y install \
+    ftp \
+    iproute2 \
+    procps \
+    telnet \
+    vsftpd && \
+    touch /var/log/vsftpd.log && \
+    rm -rf /var/lib/apt/lists/*
+EXPOSE 21/tcp 50000-50019/tcp
+ENTRYPOINT ["/usr/local/bin/container-entrypoint.sh"]
+CMD ["vsftpd", \
+            "-oseccomp_sandbox=NO", \
+            "-obackground=NO", \
+            "-opasv_min_port=50000", \
+            "-opasv_max_port=50019", \
+            "/etc/vsftpd.conf"]

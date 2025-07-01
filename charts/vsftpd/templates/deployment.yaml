@@ -66,6 +66,7 @@ spec:
           volumeMounts:
             - name: config
               mountPath: {{ .Values.configMount.path }}
+              subPath: {{ .Values.configMount.subPath }}
             {{- with .Values.extraVolumeMounts }}
               {{- toYaml . | nindent 12 }}
             {{- end }}

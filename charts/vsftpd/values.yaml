@@ -7,6 +7,9 @@ image:
 
 config: ""
 
+configMount:
+  path: "/etc/vsftpd"
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""

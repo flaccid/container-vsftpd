@@ -39,6 +39,9 @@ docker-build-clean:: ## cleanly builds the docker image locally
 docker-pull:: ## pulls the docker image locally
 		@docker pull $(IMAGE_TAG)
 
+docker-pull-debian:: ## pulls the docker image locally (debian version)
+		@docker pull $(DOCKER_REGISTRY)/$(IMAGE_ORG)/$(IMAGE_NAME):debian
+
 docker-run:: ## Runs the docker image
 		@echo 'billgates:St34lDoS' > $(WORKING_DIR)/test/mnt/vsftpd-passwd
 		docker run \

@@ -1,0 +1,2 @@
+#!/command/execlineb -P
+tail -f /var/log/vsftpd.log

@@ -1,0 +1,31 @@
+{{- if eq .Values.kind "StatefulSet" }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{ include "vsftpd.fullname" . }}-headless"
+  labels:
+    {{- include "vsftpd.labels" . | nindent 4 }}
+spec:
+  # Setting clusterIP to None makes this a "headless" service.
+  clusterIP: None
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: ftpd
+      name: ftpd
+  {{- $pasvMinPort := int .Values.service.pasvMinPort }}
+  {{- $pasvMaxPort := int .Values.service.pasvMaxPort | add1 | int }}
+  {{- $step := 1 }}
+  {{- $pasvPorts := untilStep $pasvMinPort $pasvMaxPort $step }}
+  {{- range $index, $port := $pasvPorts }}
+    - port: {{ $port }}
+      targetPort: pasv-{{ $index }}
+      name: pasv-{{ $index }}
+  {{- end }}
+  {{- if .Values.sshd.enabled }}
+    - port: 22
+      targetPort: sshd
+      name: sshd
+  {{- end }}
+  selector:
+    {{- include "vsftpd.selectorLabels" . | nindent 4 }}
+{{- end }}

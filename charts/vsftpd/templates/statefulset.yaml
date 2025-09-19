@@ -1,6 +1,6 @@
-{{- if eq .Values.kind "Deployment" }}
+{{- if eq .Values.kind "StatefulSet" }}
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "vsftpd.fullname" . }}
   labels:
@@ -12,6 +12,8 @@ spec:
   selector:
     matchLabels:
       {{- include "vsftpd.selectorLabels" . | nindent 6 }}
+  # This headless service is required for the StatefulSet
+  serviceName: "{{ include "vsftpd.fullname" . }}-headless"
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -68,6 +70,9 @@ spec:
             - name: config
               mountPath: {{ .Values.configMount.path }}
               subPath: {{ .Values.configMount.subPath }}
+            # Mount the persistent volume for user data
+            - name: {{ .Values.persistentVolume.name }}
+              mountPath: {{ .Values.persistentVolume.mountPath }}
             {{- with .Values.extraVolumeMounts }}
               {{- toYaml . | nindent 12 }}
             {{- end }}
@@ -79,10 +84,13 @@ spec:
           {{- end }}
           image: "{{ .Values.sshd.image.repository }}:{{ .Values.sshd.image.tag }}"
           imagePullPolicy: {{ .Values.sshd.image.pullPolicy }}
-          {{- with .Values.extraVolumeMounts }}
           volumeMounts:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
+            # Also mount the persistent volume here for SSH access
+            - name: {{ .Values.persistentVolume.name }}
+              mountPath: {{ .Values.persistentVolume.mountPath }}
+            {{- with .Values.extraVolumeMounts }}
+              {{- toYaml . | nindent 12 }}
+            {{- end }}
           ports:
             - name: sshd
               containerPort: 22
@@ -124,4 +132,13 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+  volumeClaimTemplates:
+  - metadata:
+      name: {{ .Values.persistentVolume.name }}
+    spec:
+      accessModes: {{ .Values.persistentVolume.accessModes }}
+      storageClassName: {{ .Values.persistentVolume.storageClassName }}
+      resources:
+        requests:
+          storage: {{ .Values.persistentVolume.size }}
 {{- end }}

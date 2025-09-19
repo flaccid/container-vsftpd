@@ -1,3 +1,5 @@
+kind: Deployment
+
 replicaCount: 1
 
 image:
@@ -8,8 +10,8 @@ image:
 config: ""
 
 configMount:
-  path: "/etc/vsftpd"
-  subPath: 
+  path: "/etc/vsftpd.conf"
+  subPath: "vsftpd.conf"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -79,11 +81,12 @@ extraVolumeMounts: []
 #   mountPath: "/etc/foo"
 #   readOnly: true
 
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}
+persistentVolume:
+  name: ftp-data
+  mountPath: "/var/lib/ftp"
+  accessModes: ["ReadWriteOnce"]
+  storageClassName: "" # user should set this to an available storage class
+  size: 1Gi
 
 sshd:
   enable: false
@@ -95,3 +98,9 @@ sshd:
 
 httphealth:
   enabled: false
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

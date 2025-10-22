@@ -27,12 +27,10 @@ podAnnotations: {}
 
 podLabels: {}
 
-podSecurityContext:
-  {}
+podSecurityContext: {}
   # fsGroup: 2000
 
-securityContext:
-  {}
+securityContext: {}
   # capabilities:
   #   drop:
   #   - ALL
@@ -47,8 +45,7 @@ service:
   pasvMinPort: 50000
   pasvMaxPort: 50019
 
-resources:
-  {}
+resources: {}
   # limits:
   #   cpu: 100m
   #   memory: 128Mi
@@ -87,6 +84,7 @@ persistentVolume:
   accessModes: ["ReadWriteOnce"]
   storageClassName: "" # user should set this to an available storage class
   size: 1Gi
+  volumeName: ## when needing static provisioning
 
 sshd:
   enable: false

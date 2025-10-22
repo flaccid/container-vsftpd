@@ -141,4 +141,7 @@ spec:
       resources:
         requests:
           storage: {{ .Values.persistentVolume.size }}
+      {{- if .Values.persistentVolume.volumeName }}          
+      volumeName: {{ .Values.persistentVolume.volumeName }}
+      {{- end }}
 {{- end }}

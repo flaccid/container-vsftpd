@@ -84,6 +84,7 @@ persistentVolume:
   accessModes: ["ReadWriteOnce"]
   storageClassName: "" # user should set this to an available storage class
   size: 1Gi
+  volumeMode:
   volumeName: ## when needing static provisioning
 
 sshd:

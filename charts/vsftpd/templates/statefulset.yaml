@@ -135,13 +135,22 @@ spec:
   volumeClaimTemplates:
   - metadata:
       name: {{ .Values.persistentVolume.name }}
+      {{- if .Values.persistentVolume.namespace }}
+      namespace: {{ .Values.persistentVolume.namespace }}
+      {{- end }}
     spec:
-      accessModes: {{ .Values.persistentVolume.accessModes }}
+      {{- with .Values.persistentVolume.accessModes }}
+      accessModes:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       storageClassName: {{ .Values.persistentVolume.storageClassName }}
       resources:
         requests:
           storage: {{ .Values.persistentVolume.size }}
-      {{- if .Values.persistentVolume.volumeName }}          
+      {{- if .Values.persistentVolume.volumeMode }}
+      volumeMode: {{ .Values.persistentVolume.volumeMode }}
+      {{- end }}
+      {{- if .Values.persistentVolume.volumeName }}
       volumeName: {{ .Values.persistentVolume.volumeName }}
       {{- end }}
 {{- end }}

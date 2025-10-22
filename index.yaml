@@ -3,7 +3,18 @@ entries:
   vsftpd:
   - apiVersion: v2
     appVersion: 3.0.5
-    created: "2025-10-22T16:01:27.52135508+11:00"
+    created: "2025-10-22T18:39:16.020413703+11:00"
+    description: A Helm chart for running vsftpd in Kubernetes
+    digest: f6f0976da9364915d753b73ce00e347e9b46bbf2e7af0e3f2a1b12b51b951ea5
+    icon: data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHN0eWxlPi5zdDB7ZmlsbDojNEE5MEUyO30uc3Qxe2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6ODtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7fTwvc3R5bGU+PHBhdGggY2xhc3M9InN0MCIgZD0iTTExMiwzNi41djU1YzAchildNodes6LjktNS42LDEyLjUtMTIuNSwxMi41SDI4LjVjLTYuOSwwLTEyLjUtNS42LTEyLjUtMTIuNXYtNzBDMTYsMjcuNiwyMS42LDIyLDI4LjUsMjJoMjMgTDY0LDM2LjVIMTEyeiIvPjxwb2x5bGluZSBjbGFzcz0ic3QxIiBwb2ludHM9IjUwLDYwIDQwLDcwIDUwLDgwIi8+PHBvbHlsaW5lIGNsYXNzPSJzdDEiIHBvaW50cz0iNzgsNjAgODgsNzAgNzgsODAiLz48bGluZSBjbGFzcz0ic3QxIiB4MT0iNDIiIHkxPSI3MCIgeDI9Ijg2IiB5Mj0iNzAiLz48L3N2Zz4=
+    name: vsftpd
+    type: application
+    urls:
+    - https://flaccid.github.io/container-vsftpd/vsftpd-0.3.2.tgz
+    version: 0.3.2
+  - apiVersion: v2
+    appVersion: 3.0.5
+    created: "2025-10-22T18:39:16.019540306+11:00"
     description: A Helm chart for running vsftpd in Kubernetes
     digest: 23c83125f4b1b03b1bb02acfba0affc13f5e88b78c12047030afd01202d7a12c
     icon: data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHN0eWxlPi5zdDB7ZmlsbDojNEE5MEUyO30uc3Qxe2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6ODtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7fTwvc3R5bGU+PHBhdGggY2xhc3M9InN0MCIgZD0iTTExMiwzNi41djU1YzAchildNodes6LjktNS42LDEyLjUtMTIuNSwxMi41SDI4LjVjLTYuOSwwLTEyLjUtNS42LTEyLjUtMTIuNXYtNzBDMTYsMjcuNiwyMS42LDIyLDI4LjUsMjJoMjMgTDY0LDM2LjVIMTEyeiIvPjxwb2x5bGluZSBjbGFzcz0ic3QxIiBwb2ludHM9IjUwLDYwIDQwLDcwIDUwLDgwIi8+PHBvbHlsaW5lIGNsYXNzPSJzdDEiIHBvaW50cz0iNzgsNjAgODgsNzAgNzgsODAiLz48bGluZSBjbGFzcz0ic3QxIiB4MT0iNDIiIHkxPSI3MCIgeDI9Ijg2IiB5Mj0iNzAiLz48L3N2Zz4=
@@ -14,7 +25,7 @@ entries:
     version: 0.3.1
   - apiVersion: v2
     appVersion: 3.0.5
-    created: "2025-10-22T16:01:27.521072279+11:00"
+    created: "2025-10-22T18:39:16.019200309+11:00"
     description: A Helm chart for running vsftpd in Kubernetes
     digest: 8ff77cbfca8636e947bc8d2a90d5d1ff014c452415b69a1609e1262ceec5a90a
     icon: data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHN0eWxlPi5zdDB7ZmlsbDojNEE5MEUyO30uc3Qxe2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6ODtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7fTwvc3R5bGU+PHBhdGggY2xhc3M9InN0MCIgZD0iTTExMiwzNi41djU1YzAchildNodes6LjktNS42LDEyLjUtMTIuNSwxMi41SDI4LjVjLTYuOSwwLTEyLjUtNS42LTEyLjUtMTIuNXYtNzBDMTYsMjcuNiwyMS42LDIyLDI4LjUsMjJoMjMgTDY0LDM2LjVIMTEyeiIvPjxwb2x5bGluZSBjbGFzcz0ic3QxIiBwb2ludHM9IjUwLDYwIDQwLDcwIDUwLDgwIi8+PHBvbHlsaW5lIGNsYXNzPSJzdDEiIHBvaW50cz0iNzgsNjAgODgsNzAgNzgsODAiLz48bGluZSBjbGFzcz0ic3QxIiB4MT0iNDIiIHkxPSI3MCIgeDI9Ijg2IiB5Mj0iNzAiLz48L3N2Zz4=
@@ -25,7 +36,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: 3.0.5
-    created: "2025-10-22T16:01:27.520848833+11:00"
+    created: "2025-10-22T18:39:16.018914434+11:00"
     description: A Helm chart for Kubernetes
     digest: ff1df63273739675637e9ec390c69e05d31f110b3fabaa8dff803a863ce1b70d
     name: vsftpd
@@ -35,7 +46,7 @@ entries:
     version: 0.2.2
   - apiVersion: v2
     appVersion: 3.0.5
-    created: "2025-10-22T16:01:27.52057705+11:00"
+    created: "2025-10-22T18:39:16.018716195+11:00"
     description: A Helm chart for Kubernetes
     digest: b0562e44761edd972bb7d1057dddbd827d8bcd44b7758161aecc81d2fddae785
     name: vsftpd
@@ -45,7 +56,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: 3.0.5
-    created: "2025-10-22T16:01:27.520372123+11:00"
+    created: "2025-10-22T18:39:16.018473748+11:00"
     description: A Helm chart for Kubernetes
     digest: b3d9342bae5dcfdf7deecdf8c082c8aadd376dec7b93d758c2b31998be673e5b
     name: vsftpd
@@ -55,7 +66,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 3.0.5
-    created: "2025-10-22T16:01:27.520193858+11:00"
+    created: "2025-10-22T18:39:16.01826285+11:00"
     description: A Helm chart for Kubernetes
     digest: 343859c640b0cc5e3edd4cb85c05320bf1e3904af5f854eae88efacd3b5b2e99
     name: vsftpd
@@ -63,4 +74,4 @@ entries:
     urls:
     - https://flaccid.github.io/container-vsftpd/vsftpd-0.1.16.tgz
     version: 0.1.16
-generated: "2025-10-22T16:01:27.519834698+11:00"
+generated: "2025-10-22T18:39:16.017662353+11:00"

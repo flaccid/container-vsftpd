@@ -54,9 +54,11 @@ resources: {}
   #   memory: 128Mi
 
 livenessProbe:
+  enabled: true
   tcpSocket:
     port: 21
 readinessProbe:
+  enabled: true
   tcpSocket:
     port: 21
 
